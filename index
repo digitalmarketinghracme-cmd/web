@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACME Switchgears | Industrial Electrical & Automation</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;color:#142c40;background:#fff}
+:root{--navy:#092a45;--gold:#d9a746;--light:#f3f6f8}
+.container{width:90%;max-width:1200px;margin:auto}
+a{text-decoration:none;color:inherit}
+header{background:white;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px #0001}
+nav{height:85px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:150px;height:65px;object-fit:contain}
+.logo-text{font-size:19px;font-weight:900;color:var(--navy)}
+.logo-text span{display:block;font-size:10px;letter-spacing:3px;color:var(--gold)}
+.navlinks{display:flex;gap:25px;font-size:13px;font-weight:bold}
+.navlinks a:hover{color:var(--gold)}
+.btn{display:inline-block;padding:15px 24px;background:var(--gold);color:#102b40;font-weight:bold;border-radius:3px}
+.btn:hover{background:#fff}
+.shop-nav{background:var(--navy);color:white;padding:14px 20px}
+
+.hero{
+min-height:620px;
+display:flex;
+align-items:center;
+color:white;
+background:linear-gradient(90deg,#061d32f5,#092a45bb),
+url('https://acmeswitchgears.in/wp-content/themes/customTheme/images/Autonics%20banner.png') center/cover;
+}
+.hero-content{max-width:700px;padding:90px 0}
+.tag{color:var(--gold);font-weight:bold;letter-spacing:3px;font-size:12px}
+.hero h1{font-size:clamp(40px,6vw,68px);line-height:1.1;margin:25px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{line-height:1.9;color:#d8e1e8;max-width:580px;margin-bottom:30px}
+.hero-stats{display:flex;gap:50px;margin-top:55px}
+.hero-stats strong{display:block;font-size:30px;color:var(--gold)}
+.hero-stats small{font-size:12px;color:#d8e1e8}
+
+section{padding:85px 0}
+.heading{text-align:center;margin-bottom:45px}
+.heading small{color:#bd8a32;font-weight:bold;letter-spacing:3px}
+.heading h2{font-size:38px;color:var(--navy);margin:15px 0}
+.heading p{color:#687b89;line-height:1.8}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-image img{width:100%;height:350px;object-fit:cover}
+.about-text h2{font-size:38px;margin-bottom:20px}
+.about-text p{color:#657786;line-height:1.9;margin-bottom:18px}
+
+.products{background:var(--light)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product-card{background:white;border:1px solid #e3e9ed;transition:.3s}
+.product-card:hover{transform:translateY(-7px);box-shadow:0 12px 25px #0001}
+.product-card img{width:100%;height:200px;object-fit:contain;background:#edf1f3;padding:15px}
+.product-info{padding:23px}
+.product-info h3{color:var(--navy);margin-bottom:12px}
+.product-info p{color:#71808c;font-size:13px;line-height:1.7}
+.product-info a{display:inline-block;margin-top:18px;color:#ad7927;font-weight:bold;font-size:13px}
+
+.shop{background:var(--navy);color:white}
+.shop .heading h2{color:white}
+.shop .heading p{color:#c0ccd4}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.shop-card{background:white;color:var(--navy);overflow:hidden}
+.shop-card img{width:100%;height:190px;object-fit:contain;background:#edf1f3;padding:15px}
+.shop-info{padding:25px}
+.shop-info h3{margin-bottom:12px}
+.shop-info p{font-size:13px;line-height:1.7;color:#71808c}
+.shop-info a{display:inline-block;margin-top:20px;background:var(--gold);padding:13px 17px;font-size:12px;font-weight:bold}
+
+.brands{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.brand{border:1px solid #e1e7eb;padding:25px 12px;text-align:center;font-weight:bold;color:var(--navy);min-height:90px;display:grid;place-items:center}
+
+.industries{background:var(--light)}
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.industry{background:white;padding:28px;border-left:3px solid var(--gold);font-weight:bold;color:var(--navy)}
+
+.contact{background:#f3f6f8}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-details p{margin:20px 0;color:#536b7c;line-height:1.8}
+form{background:white;padding:30px;box-shadow:0 5px 25px #0001}
+input,select,textarea{width:100%;padding:14px;margin:10px 0 18px;border:1px solid #dce3e8;font:inherit}
+label{font-size:13px;font-weight:bold}
+button{border:0;cursor:pointer}
+
+footer{background:#061d30;color:white;padding:55px 0 20px}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+footer h3{color:var(--gold);margin-bottom:20px}
+footer p,footer a{font-size:13px;color:#c1ccd4;line-height:2}
+.copyright{border-top:1px solid #ffffff22;margin-top:35px;padding-top:20px;font-size:12px;color:#91a2ae}
+
+.whatsapp{position:fixed;bottom:22px;right:22px;background:#20b86a;color:white;border-radius:50%;width:55px;height:55px;display:grid;place-items:center;font-size:25px;z-index:99}
+
+@media(max-width:850px){
+nav{height:auto;min-height:75px;flex-wrap:wrap;padding:12px 0}
+.navlinks{order:3;width:100%;overflow-x:auto;padding:15px 0;gap:20px}
+.logo img{width:110px}
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.product-grid,.shop-grid{grid-template-columns:repeat(2,1fr)}
+.brands{grid-template-columns:repeat(3,1fr)}
+.industry-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:550px){
+.hero{min-height:570px}
+.hero h1{font-size:43px}
+.hero-stats{gap:20px}
+.product-grid,.shop-grid,.industry-grid{grid-template-columns:1fr}
+.brands{grid-template-columns:repeat(2,1fr)}
+.heading h2,.about-text h2{font-size:30px}
+.footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="container">
+<div class="logo">
+<img src="./acme-logo.png" alt="ACME Switchgears Logo">
+</div>
+
+<div class="navlinks">
+<a href="#home">HOME</a>
+<a href="#about">ABOUT</a>
+<a href="#products">PRODUCTS</a>
+<a href="#brands">BRANDS</a>
+<a href="#shop">ONLINE SHOP</a>
+<a href="#contact">CONTACT</a>
+</div>
+
+<a class="shop-nav" href="https://www.acmeswitchgears.net/" target="_blank">SHOP NOW ↗</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container hero-content">
+<div class="tag">INDUSTRIAL ELECTRICAL & AUTOMATION</div>
+<h1>Powering Industry.<br><span>Enabling Automation.</span></h1>
+<p>
+Your trusted partner for industrial electrical and automation
+products. Quality products, trusted brands and dependable
+industrial solutions.
+</p>
+<a class="btn" href="#products">EXPLORE PRODUCTS ↗</a>
+<a class="btn" href="#contact">REQUEST QUOTE</a>
+
+<div class="hero-stats">
+<div><strong>20+</strong><small>Years Experience</small></div>
+<div><strong>400+</strong><small>Industries Served</small></div>
+<div><strong>10+</strong><small>Brand Partners</small></div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container about-grid">
+<div class="about-image">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/delta%20banner.png" alt="Industrial automation">
+</div>
+<div class="about-text">
+<div class="tag">ABOUT ACME</div>
+<h2>Built on Trust.<br>Driven by Technology.</h2>
+<p>
+ACME Switchgears is a supplier of industrial electrical
+and automation products with more than two decades
+of expertise.
+</p>
+<p>
+We are authorised stockists for reputed brands and
+serve more than 400 industries in and around Tamil Nadu.
+</p>
+<a class="btn" href="#contact">CONTACT OUR TEAM ↗</a>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+<div class="container">
+<div class="heading">
+<small>OUR PRODUCT RANGE</small>
+<h2>Industrial Products & Solutions</h2>
+<p>Explore electrical and automation products for your business.</p>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/Autonics%20banner.png" alt="Sensors">
+<div class="product-info">
+<h3>Industrial Sensors</h3>
+<p>Proximity, photoelectric and fibre optic sensors.</p>
+<a href="#contact">ENQUIRE NOW ↗</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/delta%20banner.png" alt="Controllers">
+<div class="product-info">
+<h3>PLC & Controllers</h3>
+<p>Industrial automation and control systems.</p>
+<a href="#contact">ENQUIRE NOW ↗</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/koino%20banner.png" alt="Control switches">
+<div class="product-info">
+<h3>Control Switches</h3>
+<p>Push buttons, selector switches and control devices.</p>
+<a href="https://www.acmeswitchgears.net/koino-sensor-and-push-button.html" target="_blank">VIEW PRODUCTS ↗</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/schneider%20banner.png" alt="Electrical products">
+<div class="product-info">
+<h3>Electrical Products</h3>
+<p>Electrical distribution and switching equipment.</p>
+<a href="#contact">ENQUIRE NOW ↗</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/Qlight%20banner.png" alt="Signalling">
+<div class="product-info">
+<h3>Signalling Units</h3>
+<p>Industrial tower lights, beacons and alarms.</p>
+<a href="#contact">ENQUIRE NOW ↗</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/Neptune%20bals%20banner.png" alt="Industrial plugs">
+<div class="product-info">
+<h3>Industrial Plugs & Sockets</h3>
+<p>Industrial connection and power distribution products.</p>
+<a href="#contact">ENQUIRE NOW ↗</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ONLINE SHOP -->
+<section class="shop" id="shop">
+<div class="container">
+<div class="heading">
+<small>ACME ONLINE STORE</small>
+<h2>Shop Industrial Products Online</h2>
+<p>Browse products and continue to our online shopping website.</p>
+<a class="btn" href="https://www.acmeswitchgears.net/" target="_blank">
+VISIT ONLINE STORE ↗
+</a>
+</div>
+
+<div class="shop-grid">
+<div class="shop-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/koino%20banner.png" alt="Koino">
+<div class="shop-info">
+<h3>Koino Sensors & Push Buttons</h3>
+<p>Explore Koino industrial control and sensing products.</p>
+<a href="https://www.acmeswitchgears.net/koino-sensor-and-push-button.html" target="_blank">VIEW & PURCHASE ↗</a>
+</div>
+</div>
+
+<div class="shop-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/Autonics%20banner.png" alt="Automation">
+<div class="shop-info">
+<h3>Automation Products</h3>
+<p>Explore industrial automation products and solutions.</p>
+<a href="https://www.acmeswitchgears.net/" target="_blank">VIEW & PURCHASE ↗</a>
+</div>
+</div>
+
+<div class="shop-card">
+<img src="https://acmeswitchgears.in/wp-content/themes/customTheme/images/schneider%20banner.png" alt="Electrical">
+<div class="shop-info">
+<h3>Electrical Products</h3>
+<p>Find electrical and industrial control products.</p>
+<a href="https://www.acmeswitchgears.net/" target="_blank">VIEW & PURCHASE ↗</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+<div class="container">
+<div class="heading">
+<small>OUR BRAND PARTNERS</small>
+<h2>Trusted Industrial Brands</h2>
+</div>
+<div class="brands">
+<div class="brand">AUTONICS</div>
+<div class="brand">DELTA</div>
+<div class="brand">SCHNEIDER ELECTRIC</div>
+<div class="brand">SCHMERSAL</div>
+<div class="brand">QLIGHT</div>
+<div class="brand">KOINO</div>
+<div class="brand">POLYCAB</div>
+<div class="brand">KINCO</div>
+<div class="brand">NEPTUNE BALS</div>
+<div class="brand">LS ELECTRIC</div>
+</div>
+</div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+<div class="container">
+<div class="heading">
+<small>INDUSTRIES WE SERVE</small>
+<h2>Solutions Across Industries</h2>
+</div>
+<div class="industry-grid">
+<div class="industry">01 · Automobile Industry</div>
+<div class="industry">02 · Cement Industry</div>
+<div class="industry">03 · Packaging Industry</div>
+<div class="industry">04 · Rubber & Tyre</div>
+<div class="industry">05 · Manufacturing</div>
+<div class="industry">06 · Process Industries</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="heading">
+<small>CONTACT ACME</small>
+<h2>Request a Product Quote</h2>
+<p>Tell us your requirements. Our team will contact you.</p>
+</div>
+
+<div class="contact-grid">
+<div class="contact-details">
+<h2>Let's Find the Right Solution.</h2>
+<p><b>Phone:</b><br>+91 44 4206 1113<br>+91 44 4206 1114</p>
+<p><b>Email:</b><br>acmeswitchgears@ymail.com</p>
+<p><b>Address:</b><br>
+107, Angappa Naicken Street,<br>
+George Town, Chennai,<br>
+Tamil Nadu 600001, India.
+</p>
+<a class="btn" href="https://www.acmeswitchgears.net/" target="_blank">ONLINE STORE ↗</a>
+</div>
+
+<form action="mailto:acmeswitchgears@ymail.com" method="post" enctype="text/plain">
+<label>Full Name</label>
+<input type="text" name="Name" required placeholder="Enter your name">
+
+<label>Company Name</label>
+<input type="text" name="Company" placeholder="Enter company name">
+
+<label>Email Address</label>
+<input type="email" name="Email" required placeholder="Enter email">
+
+<label>Phone Number</label>
+<input type="tel" name="Phone" required placeholder="Enter phone number">
+
+<label>Product Requirement</label>
+<select name="Product">
+<option>Industrial Sensors</option>
+<option>PLC & Controllers</option>
+<option>Control Switches</option>
+<option>Electrical Products</option>
+<option>Industrial Plugs & Sockets</option>
+<option>Other</option>
+</select>
+
+<label>Message</label>
+<textarea name="Message" rows="4" required placeholder="Describe your requirements"></textarea>
+
+<button class="btn" type="submit">SEND ENQUIRY ↗</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>ACME SWITCHGEARS</h3>
+<p>Industrial electrical and automation products backed by quality, experience and dependable service.</p>
+</div>
+<div>
+<h3>QUICK LINKS</h3>
+<p><a href="#about">About Us</a></p>
+<p><a href="#products">Products</a></p>
+<p><a href="#brands">Brands</a></p>
+<p><a href="#contact">Contact</a></p>
+</div>
+<div>
+<h3>ONLINE SHOPPING</h3>
+<p><a href="https://www.acmeswitchgears.net/" target="_blank">Shop All Products ↗</a></p>
+<p><a href="https://www.acmeswitchgears.net/koino-sensor-and-push-button.html" target="_blank">Koino Products ↗</a></p>
+<p>Monday – Saturday</p>
+<p>10:00 AM – 7:00 PM</p>
+</div>
+</div>
+<div class="copyright">
+© 2026 ACME Switchgears. All Rights Reserved.
+</div>
+</div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918056222602" target="_blank" aria-label="WhatsApp">✆</a>
+
+</body>
+</html>
